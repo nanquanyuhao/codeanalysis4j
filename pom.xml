@@ -22,6 +22,7 @@
             <version>0.0.13</version>
         </dependency>
 
+        <!-- 默认版本 17.0 缺少类 -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
