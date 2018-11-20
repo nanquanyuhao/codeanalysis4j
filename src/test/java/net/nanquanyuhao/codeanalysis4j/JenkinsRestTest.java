@@ -1,4 +1,4 @@
-package net.nanquanyuhao.jenkins;
+package net.nanquanyuhao.codeanalysis4j;
 
 import com.cdancy.jenkins.rest.JenkinsClient;
 import com.cdancy.jenkins.rest.domain.system.SystemInfo;
