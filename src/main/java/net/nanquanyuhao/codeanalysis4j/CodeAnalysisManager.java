@@ -16,4 +16,11 @@ public interface CodeAnalysisManager {
      * @return
      */
     CodeAnalysisJob createJob(String projectKey, String projectName, String projectURL);
+
+    /**
+     * 据项目唯一标识触发一次构建
+     *
+     * @param projectKey
+     */
+    void build(String projectKey);
 }

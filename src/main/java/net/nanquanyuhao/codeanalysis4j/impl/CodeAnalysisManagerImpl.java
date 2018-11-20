@@ -103,4 +103,16 @@ public class CodeAnalysisManagerImpl implements CodeAnalysisManager {
         CodeAnalysisJob codeAnalysisJob = new CodeAnalysisJob(job, projectKey, projectName, projectURL);
         return codeAnalysisJob;
     }
+
+    @Override
+    public void build(String projectKey) {
+
+        try {
+            JobWithDetails job = jenkinsServer.getJob(projectKey);
+            job.build();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new CodeAnalysisException("网络异常！");
+        }
+    }
 }
