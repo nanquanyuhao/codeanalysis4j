@@ -34,9 +34,9 @@ public class CodeAnalysisManagerImpl implements CodeAnalysisManager {
     private final String templateProjectName;
 
     /**
-     * 模板项目
+     * 模板项目（禁止指令重排，确保有序取内存数据保证最新）
      */
-    private TemplateProject templateProject;
+    private volatile TemplateProject templateProject;
 
     /**
      * 实际服务组件构造器
@@ -105,17 +105,22 @@ public class CodeAnalysisManagerImpl implements CodeAnalysisManager {
      */
     private TemplateProject refreshTemplateProject() {
 
-        String templateProjectXml = null;
         if (templateProject == null) {
-            try {
-                templateProjectXml = jenkinsServer.getJobXml(templateProjectName);
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new CodeAnalysisException("网络异常！");
-            }
+            synchronized (CodeAnalysisManagerImpl.class) {
+                if (templateProject == null) {
 
-            CodeAnalysisProject cap = ParseUtils.parseProjectWithXml(templateProjectXml);
-            templateProject = new TemplateProject(templateProjectName, templateProjectXml, cap);
+                    String templateProjectXml = null;
+                    try {
+                        templateProjectXml = jenkinsServer.getJobXml(templateProjectName);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        throw new CodeAnalysisException("网络异常！");
+                    }
+
+                    CodeAnalysisProject cap = ParseUtils.parseProjectWithXml(templateProjectXml);
+                    templateProject = new TemplateProject(templateProjectName, templateProjectXml, cap);
+                }
+            }
         }
 
         return templateProject;
