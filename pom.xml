@@ -5,8 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.nanquanyuhao</groupId>
-    <artifactId>jenkins</artifactId>
+    <artifactId>codeanalysis4j</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <developers>
+        <developer>
+            <id>nanquanyuhao</id>
+            <name>nanquanyuhao</name>
+            <email>nanquanyuhao@foxmail.com</email>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>
@@ -22,19 +30,6 @@
             <version>2.1.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.cdancy/jenkins-rest -->
-        <dependency>
-            <groupId>com.cdancy</groupId>
-            <artifactId>jenkins-rest</artifactId>
-            <version>0.0.13</version>
-        </dependency>
-
-        <!-- 默认版本 17.0 缺少类 -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>19.0</version>
-        </dependency>
     </dependencies>
 
 </project>

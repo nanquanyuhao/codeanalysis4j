@@ -10,7 +10,6 @@ import org.dom4j.Element;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
