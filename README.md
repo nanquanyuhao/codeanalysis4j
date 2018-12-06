@@ -25,7 +25,7 @@
 2. 抽离公共参数及变动参数
 
 ### 测试示例
-1. 基础成功示例见：[https://github.com/nanquanyuhao/jenkins](https://github.com/nanquanyuhao/jenkins)
+1. 基础成功示例见：[https://github.com/nanquanyuhao/codeanalysis4j](https://github.com/nanquanyuhao/codeanalysis4j)
 
 ### 抽离参数
 　　组件参数分为公共配置类参与使用调用变量两类，如下：
@@ -46,19 +46,51 @@
 2. 项目接口调用，提供项目的构建创建、构建触发等常用接口。
 
 ## 使用
-### 传统 Spring 项目
+### 依赖
+　　配置`Maven`依赖如下：
+```
+...
+    <dependency>
+        <groupId>io.github.nanquanyuhao</groupId>
+        <artifactId>codeanalysis4j</artifactId>
+        <version>0.0.1</version>
+    </dependency>
+...
+```
+### 配置
 1. `xml`配置文件示例如下：
 ```
+...
     <bean id="codeAnalysis" class="net.nanquanyuhao.codeanalysis4j.impl.CodeAnalysisManagerImpl">
-		<!-- 远端对接 Jenkins 地址 -->
-		<constructor-arg name="serverUri" value="http://techjenkins:8080"></constructor-arg>
-		<!-- Jenkins 的管理员用户名 -->
-		<constructor-arg name="jenkinsUsername" value="liyh1928"></constructor-arg>
-		<!-- Jenkins 的管理员密码 -->
-		<constructor-arg name="jenkinsPassword" value="1qaz@WSX"></constructor-arg>
-		<!-- Jenkins 内拉取代码的仓库地址 -->
-		<constructor-arg name="repositoryURL" value="http://192.168.41.67:10080/"></constructor-arg>
-		<!-- Jenkins 内模板项目的 Job 名称 -->
-		<constructor-arg name="templateProjectName" value="sonarqube-template"></constructor-arg>
-	</bean>
+        <!-- 远端对接 Jenkins 地址 -->
+        <constructor-arg name="serverUri" value="http://techjenkins:8080"></constructor-arg>
+        <!-- Jenkins 的管理员用户名 -->
+        <constructor-arg name="jenkinsUsername" value="liyh1928"></constructor-arg>
+        <!-- Jenkins 的管理员密码 -->
+        <constructor-arg name="jenkinsPassword" value="1qaz@WSX"></constructor-arg>
+        <!-- Jenkins 内拉取代码的仓库地址 -->
+        <constructor-arg name="repositoryURL" value="http://192.168.41.67:10080/"></constructor-arg>
+        <!-- Jenkins 内模板项目的 Job 名称 -->
+        <constructor-arg name="templateProjectName" value="sonarqube-template"></constructor-arg>
+    </bean>
+...
+```
+2. 代码初始化示例如下：
+```
+...
+    CodeAnalysisManager cam = new CodeAnalysisManagerImpl("http://techjenkins:8080", "liyh1928", "1qaz@WSX", "http://192.168.41.67:10080/", "sonarqube-template");
+...
+```
+### 具体使用
+1. 创建代码检测任务并进行检测
+```
+...
+     CodeAnalysisJob caj = cam.createJob("liyeheng.paas","liyeheng/paas","liyeheng/paas.git");
+...
+```
+2. 调用已创建的代码检测任务进行代码检测
+```
+...
+     cam.build("liyeheng.paas");
+...
 ```

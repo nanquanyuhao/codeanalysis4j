@@ -16,6 +16,6 @@ public class CodeAnalysisTest {
         // 创建并构建
         CodeAnalysisJob caj = cam.createJob("liyeheng.paas","liyeheng/paas","liyeheng/paas.git");
         // 构建
-        // cam.build("liyeheng.paas");
+        cam.build("liyeheng.paas");
     }
 }
