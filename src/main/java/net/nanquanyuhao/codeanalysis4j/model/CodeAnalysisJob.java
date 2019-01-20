@@ -3,7 +3,7 @@ package net.nanquanyuhao.codeanalysis4j.model;
 import com.offbytwo.jenkins.model.JobWithDetails;
 
 /**
- * Created by nanquanyuhao on 2018/11/20.
+ * @author nanquanyuhao
  */
 public class CodeAnalysisJob {
 
@@ -20,10 +20,10 @@ public class CodeAnalysisJob {
     /**
      * 代码检测任务实体构造器
      *
-     * @param jwd
-     * @param projectKey
-     * @param projectName
-     * @param projectURL
+     * @param jwd         Jenkins 任务信息实体
+     * @param projectKey  项目主键
+     * @param projectName 项目名称
+     * @param projectURL  项目地址
      */
     public CodeAnalysisJob(JobWithDetails jwd, String projectKey, String projectName, String projectURL) {
         this.jwd = jwd;

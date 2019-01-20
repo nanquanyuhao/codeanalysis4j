@@ -3,9 +3,9 @@ package net.nanquanyuhao.codeanalysis4j.model;
 import net.nanquanyuhao.codeanalysis4j.common.VariableConstant;
 
 /**
- * Created by nanquanyuhao on 2018/11/23.
- * <p>
  * 模板项目
+ *
+ * @author nanquanyuhao
  */
 public class TemplateProject {
 
@@ -33,7 +33,7 @@ public class TemplateProject {
     /**
      * 获取模板项目配置文件 XML
      *
-     * @return
+     * @return 模板文件内容
      */
     public String getTemplateProjectXml() {
         return templateProjectXml;
@@ -42,7 +42,7 @@ public class TemplateProject {
     /**
      * 获取模板项目 Key 替换字符串
      *
-     * @return
+     * @return 模板项目 Key 替换字符串
      */
     public String getTemplateRepositoryKey() {
 
@@ -55,7 +55,7 @@ public class TemplateProject {
     /**
      * 获取模板项目 Name 替换字符串
      *
-     * @return
+     * @return 项目 Name 替换字符串
      */
     public String getTemplateRepositoryName() {
 
@@ -68,7 +68,7 @@ public class TemplateProject {
     /**
      * 获取模板项目仓库地址替换字符串（地址全路径）
      *
-     * @return
+     * @return 模板项目仓库地址替换字符串
      */
     public String getTemplateRepositoryURL() {
 

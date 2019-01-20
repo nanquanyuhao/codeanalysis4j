@@ -1,7 +1,7 @@
 package net.nanquanyuhao.codeanalysis4j.exception;
 
 /**
- * Created by nanquanyuhao on 2018/11/20.
+ * @author nanquanyuhao
  */
 public class CodeAnalysisException extends RuntimeException {
 

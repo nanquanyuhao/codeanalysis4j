@@ -11,10 +11,9 @@ import net.nanquanyuhao.codeanalysis4j.model.TemplateProject;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 /**
- * Created by nanquanyuhao on 2018/11/20.
+ * @author nanquanyuhao
  */
 public class CodeAnalysisManagerImpl implements CodeAnalysisManager {
 
@@ -49,14 +48,7 @@ public class CodeAnalysisManagerImpl implements CodeAnalysisManager {
      */
     public CodeAnalysisManagerImpl(String serverUri, String jenkinsUsername, String jenkinsPassword, String repositoryURL, String templateProjectName) {
 
-
-        URI url = null;
-        try {
-            url = new URI(serverUri);
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-
+        URI url = URI.create(serverUri);
         this.jenkinsServer = new JenkinsServer(url, jenkinsUsername, jenkinsPassword);
         this.repositoryURL = repositoryURL;
         this.templateProjectName = templateProjectName;
