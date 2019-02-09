@@ -14,8 +14,8 @@ public class CodeAnalysisTest {
         CodeAnalysisManager cam = new CodeAnalysisManagerImpl("http://techjenkins:8080", "liyh1928", "1qaz@WSX", "http://192.168.41.67:10080/", "sonarqube-template");
 
         // 创建并构建
-        CodeAnalysisJob caj = cam.createJob("liyeheng.paas","liyeheng/paas","liyeheng/paas.git");
+        CodeAnalysisJob caj = cam.createJob("dd574ca0a9b54aa2b542f9738fc62d29", "udpm", "tech/udpm.git");
         // 构建
-        cam.build("liyeheng.paas");
+        // cam.build("dd574ca0a9b54aa2b542f9738fc62d29");
     }
 }

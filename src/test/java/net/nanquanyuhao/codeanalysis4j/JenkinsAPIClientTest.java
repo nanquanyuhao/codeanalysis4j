@@ -31,7 +31,7 @@ public class JenkinsAPIClientTest {
         try {
             String str = jenkins.getJobXml("sonarqube-template");
 
-            String newStr = str.replace("sonar.projectKey=sonarqube-template", "sonar.projectKey=liyeheng.paas")
+            String newStr = str.replace("sonar.projectKey=sonarqube-template", "sonar.projectKey=dd574ca0a9b54aa2b542f9738fc62d29")
                     .replace("sonar.projectName=sonarqube-template", "sonar.projectName=liyeheng/paas")
                     // 代码仓库地址
                     .replace("http://192.168.41.67:10080/liyeheng/gs-spring-boot-docker.git", "http://192.168.41.67:10080/liyeheng/paas.git");
@@ -40,7 +40,7 @@ public class JenkinsAPIClientTest {
 
             //JobWithDetails job = jenkins.getJob("paas");
 
-            String xml = jenkins.getJobXml("paas");
+            String xml = jenkins.getJobXml("sonarqube-template");
 
             Document document = null;
             try {
