@@ -9,7 +9,7 @@
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
-    <name>codeanalysis4j</name>
+    <name>${project.groupId}:${project.artifactId}</name>
     <description>A Code Analysis4j Plugin With Jenkins And Sonarqube SDK / Client Library for Java</description>
     <url>https://github.com/nanquanyuhao/codeanalysis4j</url>
 
@@ -28,14 +28,15 @@
         <developer>
             <name>nanquanyuhao</name>
             <email>nanquanyuhao@foxmail.com</email>
+            <organization>GitHub</organization>
+            <organizationUrl>https://github.com/nanquanyuhao</organizationUrl>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/nanquanyuhao/codeanalysis4j.git</connection>
-        <developerConnection>scm:git:https://github.com/nanquanyuhao/codeanalysis4j.git</developerConnection>
-        <url>scm:git:git://github.com/nanquanyuhao/codeanalysis4j/tree/master</url>
-        <tag>HEAD</tag>
+        <connection>scm:git:git://github.com/nanquanyuhao/codeanalysis4j.git</connection>
+        <developerConnection>scm:git:ssh://github.com:nanquanyuhao/codeanalysis4j.git</developerConnection>
+        <url>http://github.com/nanquanyuhao/codeanalysis4j/tree/master</url>
     </scm>
 
     <!-- 分布管理和认证，使用 maven 部署插件 -->
@@ -66,16 +67,6 @@
 
     </dependencies>
 
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.0-M1</version>
-            </plugin>
-        </plugins>
-    </reporting>
-
     <build>
         <pluginManagement>
             <plugins>
@@ -98,7 +89,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.0.0-M1</version>
+                    <version>2.9.1</version>
                     <executions>
                         <execution>
                             <id>attach-javadocs</id>
